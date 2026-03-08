@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - मिठाई मंदिर</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="admin-body">
+
+    <div class="admin-layout">
+        <!-- SIDEBAR -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <a href="index.html" style="text-decoration:none;color:var(--gold-light);">
+                    <span style="font-size:1.4rem;">🪔</span> <span
+                        style="font-family:'Playfair Display',serif;font-weight:700;">मिठाई मंदिर</span>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-tab="dashboard" onclick="switchTab('dashboard',this)">
+                    <i class="fas fa-chart-pie"></i> Dashboard
+                </a>
+                <a href="#" class="nav-item" data-tab="orders" onclick="switchTab('orders',this)">
+                    <i class="fas fa-receipt"></i> Orders <span class="badge" id="orderBadge">0</span>
+                </a>
+                <a href="#" class="nav-item" data-tab="products" onclick="switchTab('products',this)">
+                    <i class="fas fa-candy-cane"></i> Products
+                </a>
+                <a href="#" class="nav-item" data-tab="inventory" onclick="switchTab('inventory',this)">
+                    <i class="fas fa-warehouse"></i> Inventory
+                </a>
+                <a href="#" class="nav-item" data-tab="customers" onclick="switchTab('customers',this)">
+                    <i class="fas fa-users"></i> Customers
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <a href="index.html" class="nav-item"><i class="fas fa-store"></i> View Shop</a>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="admin-main">
+            <header class="admin-header">
+                <button class="sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 id="pageTitle">📊 Dashboard</h1>
+                <div class="header-right">
+                    <span class="admin-date" id="adminDate"></span>
+                    <div class="admin-avatar">👤 Admin</div>
+                </div>
+            </header>
+
+            <!-- DASHBOARD TAB -->
+            <div class="tab-content active" id="tab-dashboard">
+                <div class="stats-cards">
+                    <div class="stat-card sc-orange">
+                        <div class="sc-icon">📦</div>
+                        <div>
+                            <h3 id="totalOrders">0</h3>
+                            <p>Total Orders</p>
+                        </div>
+                    </div>
+                    <div class="stat-card sc-green">
+                        <div class="sc-icon">💰</div>
+                        <div>
+                            <h3 id="totalRevenue">₹0</h3>
+                            <p>Total Revenue</p>
+                        </div>
+                    </div>
+                    <div class="stat-card sc-blue">
+                        <div class="sc-icon">🍬</div>
+                        <div>
+                            <h3 id="totalProducts">20</h3>
+                            <p>Products</p>
+                        </div>
+                    </div>
+                    <div class="stat-card sc-purple">
+                        <div class="sc-icon">👥</div>
+                        <div>
+                            <h3 id="totalCustomers">0</h3>
+                            <p>Customers</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="dash-grid">
+                    <div class="dash-card">
+                        <h3>📋 Recent Orders</h3>
+                        <div id="recentOrders" class="table-wrap">
+                            <p class="empty-state">No orders yet</p>
+                        </div>
+                    </div>
+                    <div class="dash-card">
+                        <h3>🏆 Top Products</h3>
+                        <div id="topProducts"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ORDERS TAB -->
+            <div class="tab-content" id="tab-orders">
+                <div class="tab-toolbar">
+                    <h3>All Orders</h3>
+                    <select id="orderFilter" onchange="renderOrders()">
+                        <option value="all">All Status</option>
+                        <option value="Pending">Pending</option>
+                        <option value="Confirmed">Confirmed</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+                <div id="ordersTable" class="table-wrap">
+                    <p class="empty-state">No orders found</p>
+                </div>
+            </div>
+
+            <!-- PRODUCTS TAB -->
+            <div class="tab-content" id="tab-products">
+                <div class="tab-toolbar">
+                    <h3>Manage Products</h3>
+                    <button class="btn-primary" onclick="openProductModal()">+ Add Product</button>
+                </div>
+                <div id="productsTable" class="table-wrap"></div>
+            </div>
+
+            <!-- INVENTORY TAB -->
+            <div class="tab-content" id="tab-inventory">
+                <div class="tab-toolbar">
+                    <h3>Inventory Management</h3>
+                </div>
+                <div id="inventoryTable" class="table-wrap"></div>
+            </div>
+
+            <!-- CUSTOMERS TAB -->
+            <div class="tab-content" id="tab-customers">
+                <div class="tab-toolbar">
+                    <h3>Customer Records</h3>
+                </div>
+                <div id="customersTable" class="table-wrap">
+                    <p class="empty-state">No customers yet</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- PRODUCT MODAL -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal">
+            <h2 id="pmTitle">Add New Product</h2>
+            <div class="form-group"><label>Product Name</label><input type="text" id="pmName"></div>
+            <div class="form-group"><label>Description</label><textarea id="pmDesc" rows="2"></textarea></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                <div class="form-group"><label>Price (₹)</label><input type="number" id="pmPrice"></div>
+                <div class="form-group"><label>Unit</label><input type="text" id="pmUnit" placeholder="e.g., 500g, 1kg">
+                </div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+                <div class="form-group"><label>Category</label>
+                    <select id="pmCategory">
+                        <option value="mithai">Mithai</option>
+                        <option value="namkeen">Namkeen</option>
+                        <option value="cake">Cakes</option>
+                        <option value="dryfruits">Dry Fruits</option>
+                    </select>
+                </div>
+                <div class="form-group"><label>Emoji Icon</label><input type="text" id="pmEmoji" placeholder="🍬"></div>
+            </div>
+            <div class="form-group"><label>Stock Quantity</label><input type="number" id="pmStock" value="100"></div>
+            <div style="display:flex;gap:12px;margin-top:10px;">
+                <button class="btn-outline" style="flex:1;color:var(--text);"
+                    onclick="closeProductModal()">Cancel</button>
+                <button class="btn-primary" style="flex:1;" onclick="saveProduct()">Save Product</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    <script src="admin.js"></script>
+</body>
+
+</html>

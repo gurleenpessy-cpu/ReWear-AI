@@ -1,0 +1,223 @@
+.upload-section {
+    position: relative;
+    z-index: 1;
+}
+
+.upload-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.upload-header .badge {
+    margin-bottom: 16px;
+}
+
+/* Dropzone */
+.upload-dropzone {
+    max-width: 680px;
+    margin: 0 auto;
+    border: 2px dashed var(--surface-border);
+    border-radius: var(--radius-xl);
+    padding: 60px 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    background: var(--surface);
+    position: relative;
+}
+
+.upload-dropzone:hover,
+.upload-dropzone.drag-active {
+    border-color: var(--primary);
+    background: rgba(124, 58, 237, 0.05);
+    box-shadow: 0 0 40px var(--primary-glow);
+}
+
+.upload-dropzone.drag-active {
+    transform: scale(1.02);
+}
+
+.upload-icon-container {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--radius-lg);
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    color: var(--primary-light);
+}
+
+.upload-dropzone-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.upload-dropzone-subtitle {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Preview */
+.upload-preview-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.upload-preview-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    background: var(--surface);
+    border: 1px solid var(--surface-border);
+    border-radius: var(--radius-xl);
+    padding: 24px;
+}
+
+.upload-preview-image-wrapper {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 3/4;
+    background: var(--bg);
+}
+
+.upload-preview-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upload-remove-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all var(--transition-fast);
+}
+
+.upload-remove-btn:hover {
+    background: var(--rose);
+}
+
+/* Analyzing overlay */
+.upload-analyzing-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 15, 0.8);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.analyzing-spinner {
+    animation: spin 1s linear infinite;
+    color: var(--primary-light);
+}
+
+/* Upload details */
+.upload-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.upload-analyzing-status {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.analyzing-pulse {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--primary);
+    animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+/* Detected result */
+.upload-detected {
+    animation: fadeIn 0.4s ease-out;
+}
+
+.detected-result {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+}
+
+.detected-category {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.detected-hint {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+}
+
+.category-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.category-chip {
+    padding: 6px 14px;
+    border-radius: var(--radius-full);
+    font-size: 0.82rem;
+    font-weight: 600;
+    background: var(--bg-secondary);
+    border: 1px solid var(--surface-border);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.category-chip:hover {
+    border-color: var(--primary-light);
+    color: var(--text);
+}
+
+.category-chip.active {
+    background: rgba(124, 58, 237, 0.15);
+    border-color: var(--primary);
+    color: var(--primary-light);
+}
+
+@media (max-width: 768px) {
+    .upload-preview-card {
+        grid-template-columns: 1fr;
+    }
+
+    .upload-dropzone {
+        padding: 40px 24px;
+    }
+}

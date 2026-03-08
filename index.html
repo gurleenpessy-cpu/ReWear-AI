@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>मिठाई मंदिर - Premium Indian Sweet Shop</title>
+  <meta name="description" content="मिठाई मंदिर - Authentic Indian sweets, namkeen, and dry fruits. Order online for home delivery. Fresh handcrafted sweets made with pure ghee and love.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="nav-logo">
+    <span>🪔 मिठाई मंदिर<span class="dot">.</span></span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#categories">Categories</a></li>
+    <li><a href="#products">Menu</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="cart-btn" id="cartToggle" aria-label="Open cart">
+      <i class="fas fa-shopping-bag"></i>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+    <a href="admin.html" class="admin-link">🔐 Admin</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero" id="home">
+  <div class="floating-sweets">
+    <span>🍬</span><span>🧁</span><span>🍩</span><span>🍪</span><span>🍰</span>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">✨ Since 1985 • Pure Desi Ghee</div>
+    <h1>Authentic <span class="highlight">Indian Sweets</span> Crafted with Love</h1>
+    <p>हर त्योहार, हर खुशी, हर पल को मीठा बनाएं। Experience the rich tradition of handcrafted Indian sweets made with the finest ingredients.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="scrollTo('#products')">🛒 Order Now</button>
+      <button class="btn-outline" onclick="scrollTo('#about')">Our Story</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ STATS ═══ -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat-item"><h3>38+</h3><p>Years of Legacy</p></div>
+    <div class="stat-item"><h3>150+</h3><p>Sweet Varieties</p></div>
+    <div class="stat-item"><h3>50K+</h3><p>Happy Customers</p></div>
+    <div class="stat-item"><h3>100%</h3><p>Pure Desi Ghee</p></div>
+  </div>
+</section>
+
+<!-- ═══ CATEGORIES ═══ -->
+<section class="section" id="categories">
+  <div class="section-header">
+    <h2>Our Categories</h2>
+    <p>Browse our wide range of authentic Indian delicacies</p>
+    <div class="line"></div>
+  </div>
+  <div class="categories-grid">
+    <div class="category-card active" data-category="all" onclick="filterProducts('all', this)">
+      <div class="icon">🎁</div><h3>All Items</h3><p>Complete collection</p>
+    </div>
+    <div class="category-card" data-category="mithai" onclick="filterProducts('mithai', this)">
+      <div class="icon">🍬</div><h3>Mithai</h3><p>Traditional Sweets</p>
+    </div>
+    <div class="category-card" data-category="namkeen" onclick="filterProducts('namkeen', this)">
+      <div class="icon">🥨</div><h3>Namkeen</h3><p>Savory Snacks</p>
+    </div>
+    <div class="category-card" data-category="cake" onclick="filterProducts('cake', this)">
+      <div class="icon">🎂</div><h3>Cakes & Pastries</h3><p>Bakery Items</p>
+    </div>
+    <div class="category-card" data-category="dryfruits" onclick="filterProducts('dryfruits', this)">
+      <div class="icon">🥜</div><h3>Dry Fruits</h3><p>Premium Quality</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PRODUCTS ═══ -->
+<section class="section" id="products" style="background: var(--cream-dark);">
+  <div class="section-header">
+    <h2>Our Menu</h2>
+    <p>Handcrafted with love, served with tradition</p>
+    <div class="line"></div>
+  </div>
+  <div class="products-grid" id="productsGrid">
+    <!-- Products loaded via JS -->
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section class="section" id="about">
+  <div class="section-header">
+    <h2>Our Story</h2>
+    <p>A legacy of sweetness since 1985</p>
+    <div class="line"></div>
+  </div>
+  <div style="max-width:800px; margin:0 auto; text-align:center;">
+    <p style="font-size:1.05rem; line-height:2; color:var(--text-light);">
+      🪔 <strong style="color:var(--maroon);">मिठाई मंदिर</strong> was founded by Shri Raghunath Prasad in 1985 with a simple dream — to bring the authentic taste of traditional Indian sweets to every household. What started as a small shop in the heart of the city has now become a beloved brand trusted by thousands of families across generations.<br><br>
+      Every sweet we make is crafted using time-honored recipes, <strong>100% pure desi ghee</strong>, and the freshest ingredients sourced directly from trusted farms. Our master halwais (sweet makers) bring decades of experience and passion to every batch they prepare.<br><br>
+      From grand weddings to intimate family celebrations, from festive seasons to everyday indulgences — <strong style="color:var(--saffron);">मिठाई मंदिर</strong> has been a part of millions of sweet moments. 🙏
+    </p>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="section" id="testimonials" style="background: var(--cream-dark);">
+  <div class="section-header">
+    <h2>Customer Reviews</h2>
+    <p>What our customers say about us</p>
+    <div class="line"></div>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <p>Best kaju katli I have ever tasted! Pure ghee ki khushboo aati hai. My go-to shop for every festival and celebration. Highly recommended!</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">R</div>
+        <div><div class="testimonial-name">Rajesh Sharma</div><div class="testimonial-stars">⭐⭐⭐⭐⭐</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <p>Ordered sweets for my daughter's wedding. Everyone was praising the quality and taste. Mithai Mandir never disappoints. Thank you so much!</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">P</div>
+        <div><div class="testimonial-name">Priya Gupta</div><div class="testimonial-stars">⭐⭐⭐⭐⭐</div></div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <p>The namkeen variety is amazing! Fresh and crispy every time. The online ordering made it so convenient. Will definitely order again!</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">A</div>
+        <div><div class="testimonial-name">Amit Verma</div><div class="testimonial-stars">⭐⭐⭐⭐⭐</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section class="section" id="contact">
+  <div class="section-header">
+    <h2>Contact Us</h2>
+    <p>Get in touch or visit our shop</p>
+    <div class="line"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info-card">
+      <h3>🏪 Visit Our Shop</h3>
+      <div class="contact-detail">
+        <div class="ci">📍</div>
+        <div><h4>Address</h4><p>42, Sweets Gali, Chandni Chowk, Old Delhi - 110006</p></div>
+      </div>
+      <div class="contact-detail">
+        <div class="ci">📞</div>
+        <div><h4>Phone</h4><p>+91 98765 43210<br>+91 11-2345-6789</p></div>
+      </div>
+      <div class="contact-detail">
+        <div class="ci">⏰</div>
+        <div><h4>Timings</h4><p>Mon-Sun: 7:00 AM - 10:00 PM<br>Festivals: Open 24 Hours</p></div>
+      </div>
+      <div class="contact-detail">
+        <div class="ci">📧</div>
+        <div><h4>Email</h4><p>order@mithaimandir.com</p></div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3>📩 Send us a Message</h3>
+      <form id="contactForm" onsubmit="handleContact(event)">
+        <div class="form-group">
+          <label for="cName">Your Name</label>
+          <input type="text" id="cName" required placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label for="cPhone">Phone Number</label>
+          <input type="tel" id="cPhone" required placeholder="+91 XXXXX XXXXX">
+        </div>
+        <div class="form-group">
+          <label for="cSubject">Subject</label>
+          <select id="cSubject">
+            <option>General Inquiry</option>
+            <option>Bulk Order</option>
+            <option>Franchise Inquiry</option>
+            <option>Feedback</option>
+            <option>Complaint</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="cMsg">Message</label>
+          <textarea id="cMsg" rows="4" placeholder="Tell us how we can help..."></textarea>
+        </div>
+        <button type="submit" class="btn-primary" style="width:100%;">Send Message ✉️</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>🪔 मिठाई मंदिर</h3>
+      <p>Bringing sweetness to your celebrations since 1985. Pure desi ghee, authentic recipes, and love in every bite. 🙏</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#home">Home</a><a href="#categories">Categories</a><a href="#products">Menu</a><a href="#about">About Us</a>
+    </div>
+    <div class="footer-col">
+      <h4>Categories</h4>
+      <a href="#">Mithai</a><a href="#">Namkeen</a><a href="#">Cakes</a><a href="#">Dry Fruits</a>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+      <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 मिठाई मंदिर. All Rights Reserved. Made with ❤️ & Pure Ghee</p>
+  </div>
+</footer>
+
+<!-- ═══ CART SIDEBAR ═══ -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>🛒 Your Cart</h3>
+    <button class="cart-close" onclick="toggleCart()">&times;</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <div class="ce-icon">🛒</div>
+      <p>Your cart is empty!<br><small>Add some delicious sweets</small></p>
+    </div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total">
+      <span>Total:</span>
+      <strong id="cartTotal">₹0</strong>
+    </div>
+    <button class="checkout-btn" onclick="openCheckout()">Place Order 🚚</button>
+  </div>
+</div>
+
+<!-- ═══ ORDER MODAL ═══ -->
+<div class="modal-overlay" id="orderModal">
+  <div class="modal">
+    <div id="orderForm">
+      <h2>📦 Place Your Order</h2>
+      <div class="form-group">
+        <label for="oName">Full Name *</label>
+        <input type="text" id="oName" required placeholder="Your full name">
+      </div>
+      <div class="form-group">
+        <label for="oPhone">Phone Number *</label>
+        <input type="tel" id="oPhone" required placeholder="+91 XXXXX XXXXX">
+      </div>
+      <div class="form-group">
+        <label for="oAddress">Delivery Address *</label>
+        <textarea id="oAddress" rows="3" required placeholder="Full delivery address with pincode"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="oPayment">Payment Method</label>
+        <select id="oPayment">
+          <option>Cash on Delivery</option>
+          <option>UPI / Google Pay</option>
+          <option>Card Payment</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="oNotes">Special Instructions</label>
+        <textarea id="oNotes" rows="2" placeholder="Any special requests..."></textarea>
+      </div>
+      <div style="display:flex; gap:12px;">
+        <button class="btn-outline" style="flex:1; color:var(--text);" onclick="closeModal()">Cancel</button>
+        <button class="btn-primary" style="flex:1;" onclick="placeOrder()">Confirm Order ✅</button>
+      </div>
+    </div>
+    <div id="orderSuccess" class="order-success" style="display:none;">
+      <div class="os-icon">🎉</div>
+      <h3>Order Placed Successfully!</h3>
+      <p>Thank you for ordering from मिठाई मंदिर!<br>Your order will be delivered soon. 🚚</p>
+      <br>
+      <button class="btn-primary" onclick="closeModal(); location.reload();">Continue Shopping</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TOAST ═══ -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
